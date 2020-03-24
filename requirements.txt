@@ -1,0 +1,8 @@
+jupyter
+matplotlib
+numpy
+scipy
+pytorch
+torchvision
+pythainlp
+pytorch-pretrained-bert
