@@ -2,7 +2,7 @@ jupyter
 matplotlib
 numpy
 scipy
-pytorch
+torch
 torchvision
 pythainlp
 pytorch-pretrained-bert

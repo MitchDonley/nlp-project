@@ -13,4 +13,9 @@ RUN pip uninstall -y apex || :
 RUN SHA=ToUcHMe git clone https://github.com/NVIDIA/apex.git
 WORKDIR /tmp/unique_for_apex/apex
 RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
+RUN pip install thinc --upgrade
+RUN pip install spacy --upgrade
 WORKDIR /workspace
+COPY requirements.txt /workspace/requirements.txt
+RUN pip install -r requirements.txt
+RUN rm -f requirements.txt
