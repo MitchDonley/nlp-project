@@ -9,7 +9,8 @@ Create the conda environment using the yml file and run the setup script:
 ```bash
 conda env create -f proj_env_mac.yml
 conda activate NLP-project
-./partial_setup.sh
+cd XLM
+./install-tools.sh
 ```
 
 OR

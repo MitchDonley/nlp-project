@@ -9,7 +9,6 @@ RUN echo "Installing Apex on top of ${BASE_IMAGE}"
 WORKDIR /tmp/unique_for_apex
 # uninstall Apex if present, twice to make absolutely sure :)
 RUN pip uninstall -y apex || :
-RUN pip uninstall -y apex || :
 # SHA is something the user can touch to force recreation of this Docker layer,
 # and therefore force cloning of the latest version of Apex
 RUN SHA=ToUcHMe git clone https://github.com/NVIDIA/apex.git

@@ -1,0 +1,19 @@
+name: NLP-project
+channels:
+- pytorch
+- menpo
+- defaults
+dependencies:
+- jupyter
+- matplotlib
+- python=3.7
+- numpy
+- conda-forge::nvidia-apex
+- scipy
+- pytorch
+- torchvision
+- pip
+- pip:
+  - pythainlp
+  - pytorch-pretrained-bert
+- pyyaml
