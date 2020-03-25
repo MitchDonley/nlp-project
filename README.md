@@ -15,10 +15,18 @@ conda activate NLP-project
 OR
 
 Build the docker environment and run it:
+With a Nividia GPU:
+```bash
+nvidia-docker build --tag nlp-project:1.0 --tag nlp-project:latest .
+docker run --gpus all -v $(pwd):/workspace -it nlp-project
+```
+or with no gpu:
 ```bash
 docker build --tag nlp-project:1.0 --tag nlp-project:latest .
-docker run -v $(pwd):/workspace -it nlp-project
+docker run --gpus all -v $(pwd):/workspace -it nlp-project
 ```
-If you would like this docker container to appear in a separate terminal add the `--detach` flag
+If you would like this docker container to appear in a separate terminal add the `--detach` flag.
 
-***This has not been tested for GPU support. I tried to follow what they wanted but can't guarantee it will work***
+I have commented out the use of apex in the Docker file as we will not use Parallel GPU training and do not have the GPUs to do so.
+
+***This has not been tested for any other GPU outside of Tesla K80. I read online that it may not work with a GTX 1080 because it is not the Tesla brand***

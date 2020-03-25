@@ -1,7 +1,9 @@
 # Base image must at least have pytorch and CUDA installed.
-ARG BASE_IMAGE=nvcr.io/nvidia/pytorch:19.07-py3
+ARG BASE_IMAGE=nvcr.io/nvidia/pytorch:20.02-py3
 FROM $BASE_IMAGE
 ARG BASE_IMAGE
+
+######## Apex is used for parallel GPU processing ##########
 RUN echo "Installing Apex on top of ${BASE_IMAGE}"
 # make sure we don't overwrite some existing directory called "apex"
 WORKDIR /tmp/unique_for_apex
@@ -13,6 +15,7 @@ RUN pip uninstall -y apex || :
 RUN SHA=ToUcHMe git clone https://github.com/NVIDIA/apex.git
 WORKDIR /tmp/unique_for_apex/apex
 RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
+
 RUN pip install thinc --upgrade
 RUN pip install spacy --upgrade
 WORKDIR /workspace
