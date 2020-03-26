@@ -1,3 +1,5 @@
+#/bin/bash
+
 pip install -r requirements.txt
 cd XLM
 ./install-tools.sh
