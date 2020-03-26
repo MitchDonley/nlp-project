@@ -7,7 +7,7 @@ git clone https://github.com/MitchDonley/nlp-project.git
 
 Create the conda environment using the yml file and run the setup script:
 ```bash
-conda env create -f proj_env_mac.yml
+conda env create -f proj_env_OS.yml
 conda activate NLP-project
 cd XLM
 ./install-tools.sh
