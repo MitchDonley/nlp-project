@@ -3,12 +3,13 @@ channels:
 - pytorch
 - menpo
 - defaults
+- conda-forge
 dependencies:
 - jupyter
 - matplotlib
 - python=3.7
 - numpy
-- conda-forge::nvidia-apex
+- nvidia-apex
 - scipy
 - pytorch
 - torchvision
