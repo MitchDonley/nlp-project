@@ -2,7 +2,7 @@
 
 pip install -r requirements.txt
 cd XLM
-./install-tools.sh
+sudo ./install-tools.sh
 cd tools
 git clone https://github.com/NVIDIA/apex
 cd apex
