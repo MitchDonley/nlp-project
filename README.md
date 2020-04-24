@@ -1,4 +1,12 @@
-# nlp-project
+# Contrastive-XLM
+## Our Results
+Our results can be seen in this shared google drive. The dumped folder has all our experiments and the data needed to create visualizations. The wiki folder has all the monolingual data before preprocessing and the para folder has all the parallel data before preprocessing. The processed data can be found in processed.
+
+https://drive.google.com/drive/folders/18TCBj4eRKOw6xfHFH6OwLIbZ6hgT1DhU
+
+## Our Video
+Our project presentation video can be found with this Google Drive link
+https://drive.google.com/open?id=13KK8iqWHjnlyEhCa4QoHMH90FR6vvrAM (the volume is louder than I would have liked but couldn't figure out how to make it consistent)
 ## Getting Started
 Clone the repo:
 ```bash
@@ -150,13 +158,3 @@ visualize_attention_weights.py works as is; all you need to do is call it from t
 ```bash
 ./attention_vis.sh
 ```
-
-
-# Our Results
-Our results can be seen in this shared google drive. The dumped folder has all our experiments and the data needed to create visualizations. The wiki folder has all the monolingual data before preprocessing and the para folder has all the parallel data before preprocessing. The processed data can be found in processed.
-
-https://drive.google.com/drive/folders/18TCBj4eRKOw6xfHFH6OwLIbZ6hgT1DhU
-
-# Our Video
-Our project presentation video can be found with this Google Drive link
-https://drive.google.com/open?id=13KK8iqWHjnlyEhCa4QoHMH90FR6vvrAM (the volume is louder than I would have liked but couldn't figure out how to make it consistent)
