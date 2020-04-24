@@ -22,7 +22,7 @@ cd XLM
 ```
 
 This process to complete training will require a GPU that is CUDA-compatible
-
+Everything below should be down with XLM as the current directory
 ## Getting the Data
 FYI the data is quite large (>30GB) for a local machine
 from the XLM directory
