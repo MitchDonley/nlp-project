@@ -14,7 +14,7 @@ SimCLR is a self-supervised method that was introduced in the vision space. SimC
 ## Our Approach
 While SimCLR is original used in the vision space, we believe this approach can be used on sentences of different languages. For our approach, we view a sentence in any language as a general idea that can then be "augmented" to a new language. Thus 2 sentences that have the same sentiment in different languages are treated as stemming from the same original sentiment and thus will attract while 2 sentences that have different meaning will be repelled. This repelling and attracted is combined with the XLM model to improve language representations within a single language as well as distinguish ideas independent of which language it is in. Below is an example of what this pipeline looks like with languages.
 
-![SimCLR Language](/viz/contrastive_xlm.png)
+![SimCLR Language](/viz/contrastive_xlm_color.png)
 
 
 ## Our Results
