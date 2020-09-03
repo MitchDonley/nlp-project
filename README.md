@@ -20,7 +20,7 @@ While SimCLR is original used in the vision space, we believe this approach can 
 ## Our Results
 In our results we compare our contrastive model that had pretraining extended (unable to perform from a base model due to hardware contraints) to an extended pretraining without the contrastive loss as well as to the baseline set by Facebook.
 
-In some cases we saw the attention focus better with the original model and other times we saw the attention focus more accurtely on our contrastive model. Below is an example of where the contrastive model performed better (right) compared to the baseline (left).
+In some cases we saw the attention focus better with the original model and other times we saw the attention focus more accurtely on our contrastive model. Below is an example of where the contrastive model (right) attended to more exact words across sentences compared to the baseline (left).
 
 ![attention visualization](/viz/attention_score_comp.png)
 
