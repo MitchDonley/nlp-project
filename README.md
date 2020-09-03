@@ -1,5 +1,5 @@
 # Contrastive-XLM
-Our project attempts to create a better method of developing cross lingual language models in the attempt to better understand the similarities/differences between languages which would lead to better machine translation as well as other tasks such as cross lingual language inference. We attempt to show this using [Facebook's XLM](https://github.com/facebookresearch/XLM) and [Google's SimCLR](https://github.com/google-research/simclr).
+Our project attempts to create a better method of developing cross lingual language models in the attempt to better understand the similarities/differences between languages which would lead to better machine translation as well as other tasks such as cross lingual language inference. We attempt to show this using [Facebook's XLM](https://github.com/facebookresearch/XLM) and [Google's SimCLR](https://github.com/google-research/simclr). Our overall results can be seen [here](/contrastive_xlm.pdf)
 
 ## XLM
 XLM is a cross lingual language model that attempts to predict masked words in order to develop an understand of different languages using a single machine learning model. This model utilizes transformers to predict the masked words using the masks neighboring words. This is acheived in 2 different settings: MLM (masked language modeling) and TLM (translation language model). MLM performs one sentence at a time while TLM performs using a single sentences and a translated version of the same sentence. This allows the model to recognize similiarities and differences between languages. Below is a figure explaining this.
@@ -18,9 +18,40 @@ While SimCLR is original used in the vision space, we believe this approach can 
 
 
 ## Our Results
-Our results can be seen in this shared google drive. The dumped folder has all our experiments and the data needed to create visualizations. The wiki folder has all the monolingual data before preprocessing and the para folder has all the parallel data before preprocessing. The processed data can be found in processed.
+In our results we compare our contrastive model that had pretraining extended (unable to perform from a base model due to hardware contraints) to an extended pretraining without the contrastive loss as well as to the baseline set by Facebook.
+
+In some cases we saw the attention focus better with the original model and other times we saw the attention focus more accurtely on our contrastive model. Below is an example of where the contrastive model performed better (right) compared to the baseline (left).
+
+![attention visualization](/viz/attention_score_comp.png)
+
+We tested the results of these models using XNLI as the downstream task. XNLI is a cross lingual language inference task. It trains on english and tests on a variety of 14 other languages. Some are high resource and some are low resource. Below is a table comparing our results on XNLI with a variety of pretraining methods with the other models and a confusion matrix of the results with our contrastive model.
+
+Model | TLM | TLM + MLM
+------------ | ------------- | -------------
+Baseline | 71% | 71%
+Standard extended pretraining | 53.5% | 59.5%
+Contrastive extended pretraining | 60.8% | 66.25%
+
+![Confusion Matrix](/viz/conf_mats_vert.png)
+
+Lastly, we have a comparison across models over epochs which can be seen below. From left to right the graphs are: baseline, standard extended pretraining, contrastive extended pretraining (start token sentence embedding), and contrastive extended pretraining (max pooling sentence embedding).
+
+![Accuracy Plots](/viz/Accu_combined.png)
+
+Our raw results can be seen in this shared google drive. The dumped folder has all our experiments and the data needed to create visualizations. The wiki folder has all the monolingual data before preprocessing and the para folder has all the parallel data before preprocessing. The processed data can be found in processed.
 
 https://drive.google.com/drive/folders/18TCBj4eRKOw6xfHFH6OwLIbZ6hgT1DhU
+# Using our code
+Our work relies heavily on XLM which we forked and added our contrastive loss to. Below we walk through the basics of being able to re-run our code.
+
+## Dependencies
+The dependencies should be covered using the conda yml files and the requirements.txt but the libraries are below. These are the same dependencies as the ones for XLM.
+* Python 3
+* NumPy
+* PyTorch (tested on 1.0)
+* fastBPE
+* Moses (scripts to clean and tokenize only)
+* Apex (for fp16 training)
 
 ## Getting Started
 Clone the repo:
@@ -85,7 +116,7 @@ Once all the data has been downloaded and preprocessed we can start the training
 
 ### MLM + TLM Intermediate Training
 Ensure you are in the XLM directory
-Run this python script and if you have an available GPU on cuda:0 this will run properly (assuming all other paths are correct)
+Run this python script and if you have an available GPU on cuda:0 this will run properly (assuming all other paths are correct). This will train the baseline model released by Facebook with the normal TLM + MLM objective function.
 ```bash
 python -W ignore train.py \
 --exp_name fine_tune_xnli_mlm_tlm \
