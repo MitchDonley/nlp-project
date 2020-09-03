@@ -1,4 +1,22 @@
 # Contrastive-XLM
+Our project attempts to create a better method of developing cross lingual language models in the attempt to better understand the similarities/differences between languages which would lead to better machine translation as well as other tasks such as cross lingual language inference. We attempt to show this using [Facebook's XLM](https://github.com/facebookresearch/XLM) and [Google's SimCLR](https://github.com/google-research/simclr).
+
+## XLM
+XLM is a cross lingual language model that attempts to predict masked words in order to develop an understand of different languages using a single machine learning model. This model utilizes transformers to predict the masked words using the masks neighboring words. This is acheived in 2 different settings: MLM (masked language modeling) and TLM (translation language model). MLM performs one sentence at a time while TLM performs using a single sentences and a translated version of the same sentence. This allows the model to recognize similiarities and differences between languages. Below is a figure explaining this.
+
+![MLM and TLM](https://camo.githubusercontent.com/f5c0d05eb0635cdd0e17e137265af23fa825b1d4/68747470733a2f2f646c2e666261697075626c696366696c65732e636f6d2f584c4d2f786c6d5f6669677572652e6a7067)
+
+## SimCLR
+SimCLR is a self-supervised method that was introduced in the vision space. SimCLR attempts to perform multiple random augmentations on an image and attract embeddings for augmented images that were from the same original image while repelling augmented images that were from different original images. This has lead to more robust embeddings for images and performs near SOTA at the time compared to supervised approaches. Results were shown on Imagenet. Below is a figure showing how SimCLR works.
+
+![SimCLR](https://camo.githubusercontent.com/d92c0e914af70fe618cf3ea555e2da1737d84bc4/68747470733a2f2f312e62702e626c6f6773706f742e636f6d2f2d2d764834504b704539596f2f586f3461324259657276492f414141414141414146704d2f766146447750584f79416f6b4143385868383532447a4f67457332324e68625877434c63424741735948512f73313630302f696d616765342e676966)
+
+## Our Approach
+While SimCLR is original used in the vision space, we believe this approach can be used on sentences of different languages. For our approach, we view a sentence in any language as a general idea that can then be "augmented" to a new language. Thus 2 sentences that have the same sentiment in different languages are treated as stemming from the same original sentiment and thus will attract while 2 sentences that have different meaning will be repelled. This repelling and attracted is combined with the XLM model to improve language representations within a single language as well as distinguish ideas independent of which language it is in. Below is an example of what this pipeline looks like with languages.
+
+![SimCLR Language](/viz/contrastive_xlm.pdf)
+
+
 ## Our Results
 Our results can be seen in this shared google drive. The dumped folder has all our experiments and the data needed to create visualizations. The wiki folder has all the monolingual data before preprocessing and the para folder has all the parallel data before preprocessing. The processed data can be found in processed.
 
