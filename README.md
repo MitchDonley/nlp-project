@@ -4,9 +4,6 @@ Our results can be seen in this shared google drive. The dumped folder has all o
 
 https://drive.google.com/drive/folders/18TCBj4eRKOw6xfHFH6OwLIbZ6hgT1DhU
 
-## Our Video
-Our project presentation video can be found with this Google Drive link
-https://drive.google.com/open?id=13KK8iqWHjnlyEhCa4QoHMH90FR6vvrAM (the volume is louder than I would have liked but couldn't figure out how to make it consistent)
 ## Getting Started
 Clone the repo:
 ```bash
